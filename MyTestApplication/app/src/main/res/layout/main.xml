@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false"
+    android:scrollbars = "vertical"
+    android:scrollbarStyle="insideInset"
+    android:background="#000000">
+
+  <TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+      <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="#ff919eb3">
+
+          <TextView
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:textAppearance="?android:attr/textAppearanceLarge"
+              android:text="Credit Card Helper"
+              android:id="@+id/textHoarding"
+              android:layout_column="0"
+              android:background="#ff919eb3"
+              android:textColor="#ffffff" />
+      </TableRow>
+
+      <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Enter credit card Balance ($)"
+                android:id="@+id/textCardBalance"
+                android:textColor="#ff919eb3" />
+            <EditText
+                android:layout_width="117dp"
+                android:layout_height="38dp"
+                android:inputType="numberSigned"
+                android:ems="10"
+                android:id="@+id/editCardBalance"
+                android:layout_gravity="end"
+                android:background="#ffffff"
+                android:textColor="#000000" />
+        </TableRow>
+      <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Enter yearly interest rate (%)"
+                android:id="@+id/textCardInterest"
+                android:textColor="#ff919eb3" />
+
+            <EditText
+                android:layout_width="117dp"
+                android:layout_height="38dp"
+                android:inputType="numberSigned"
+                android:ems="10"
+                android:id="@+id/editCardInterest"
+                android:layout_gravity="end"
+                android:singleLine="false"
+                android:background="#ffffff"
+                android:textColor="#000000" />
+        </TableRow>
+      <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Enter minimum payment ($)"
+            android:id="@+id/textCardMinPayment"
+            android:textColor="#ff919eb3" />
+
+        <EditText
+            android:layout_width="117dp"
+            android:layout_height="38dp"
+            android:inputType="numberSigned"
+            android:ems="10"
+            android:id="@+id/editCardMinPayment"
+            android:layout_gravity="end"
+            android:background="#ffffff"
+            android:editable="false"
+            android:textColor="#000000" />
+    </TableRow>
+
+      <TableRow
+        android:id="@+id/tableRow4"
+        android:gravity="center_vertical"
+        android:layout_marginTop="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:focusableInTouchMode="false"
+            android:text="Final Card Balance ($)"
+            android:id="@+id/textCardFinalBalance"
+            android:textColor="#ff919eb3" />
+
+        <EditText
+            android:layout_width="117dp"
+            android:layout_height="38dp"
+            android:inputType="numberSigned"
+            android:ems="10"
+            android:id="@+id/editCardFinalBalance"
+            android:layout_gravity="end"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:background="#ffffff"
+            android:textColor="#000000" />
+    </TableRow>
+      <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Months remaining"
+            android:id="@+id/textCardMonths"
+            android:textColor="#ff919eb3" />
+
+        <EditText
+            android:layout_width="117dp"
+            android:layout_height="38dp"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editCardMonths"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:layout_gravity="end"
+            android:background="#ffffff"
+            android:textColor="#000000" />
+    </TableRow>
+      <TableRow
+        android:id="@+id/tableRow6"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Interest paid will be ($)"
+            android:id="@+id/textCardInterestPaid"
+            android:textColor="#ff919eb3" />
+
+        <EditText
+            android:layout_width="117dp"
+            android:layout_height="38dp"
+            android:inputType="numberSigned"
+            android:ems="10"
+            android:id="@+id/editCardInterestPaid"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:layout_gravity="end"
+            android:background="#ffffff"
+            android:textColor="#000000" />
+    </TableRow>
+
+      <TableRow
+        android:id="@+id/tableRow7"
+        android:layout_marginTop="40dp">
+
+        <Button
+            android:text="COMPUTE"
+            android:id="@+id/bt_compute"
+            android:layout_span="2">
+        </Button>
+      </TableRow>
+      <TableRow
+          android:id="@+id/tableRow8">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CLEAR"
+            android:id="@+id/bt_clear"
+            android:layout_column="0"
+            android:layout_span="2" />
+      </TableRow>
+    </TableLayout>
+
+ </ScrollView>
