@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mala.verticallayout">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme">
+
+        <uses-permission android:name="android.permission.VIBRATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+
+        <activity android:name=".home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".next"/>
+        <activity android:name=".apps"/>
+
+    </application>
+
+</manifest>
