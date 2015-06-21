@@ -3,6 +3,7 @@ package com.example.mala.project;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -32,6 +33,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     EditText title, description;
     DatePicker dp;
     Dialog dialog;
+    DatabaseHandler db = new DatabaseHandler(this);
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -124,30 +126,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 String month = String.valueOf(dp.getMonth() + 1);
                 String day = String.valueOf(dp.getDayOfMonth());
                 String year = String.valueOf(dp.getYear());
-
-
-
-                Log.d("title" , tit);
-                Log.d("desc" , desc);
-                Log.d("date" , day + "/"+ month +"/"+ year );
                 String date = day + "/"+ month +"/"+ year;
-                Log.d("date" ,date);
 
-                        //save entries to database
-                DatabaseHandler db = new DatabaseHandler(this);
+                Log.d("date", date);
+
+                //save entries to database
+
                 Log.d("Insert: ", "Inserting ..");
-                db.addInfo(new todo(tit, desc, date));
+                db.addInfo(new todo(tit,desc,date));
+
 
                 // Reading all data
-                Log.d("Reading: ", "Reading all contacts..");
+                /*Log.d("Reading: ", "Reading all contacts..");
                 List<todo> td = db.getAllInfo();
+
+                //List<String> table = new ArrayList<String>();
 
                 for (todo cn : td) {
                     String log = "Id: " + cn.get_id() + " ,Title: " + cn.get_title() + " ,Description: " + cn.get_description() +
                             " ,Date: " + cn.get_date() + " ,Status: " + cn.get_status();
                     // Writing Contacts to log
                     Log.d("Log ! : ", log);
-                }
+                    //table.add(log);
+                }*/
 
                 dialog.dismiss();
                 break;
