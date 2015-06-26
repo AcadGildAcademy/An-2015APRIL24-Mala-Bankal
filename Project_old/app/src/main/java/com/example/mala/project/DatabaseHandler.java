@@ -26,13 +26,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Table Columns names
     private static final String KEY_ID = "id";
-    protected static final String KEY_TITLE = "title";
-    protected static final String KEY_DESCRIPTION = "description";
-    protected static final String KEY_DATE = "date";
-    private static final String KEY_STATUS = "status";
-
-    String[] ALL_KEYS = new String[]{KEY_ID,
-            KEY_TITLE, KEY_DESCRIPTION, KEY_DATE, KEY_STATUS};
+    private static final String KEY_TITLE = "title";
+    private static final String KEY_DESCRIPTION = "description";
+    private static final String KEY_DATE = "date";
+    private static final String KEY_STATUS = "0";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,10 +38,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TODO_TABLE = " CREATE TABLE " + TABLE_TODO + "("
+        String CREATE_TODO_TABLE = "CREATE TABLE " + TABLE_TODO + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TITLE + " TEXT,"
                 + KEY_DESCRIPTION + " TEXT," + KEY_DATE + " TEXT,"
-                + KEY_STATUS + " TEXT " + ")";
+                + KEY_STATUS + " INTEGER " + ")";
         db.execSQL(CREATE_TODO_TABLE);
     }
 
@@ -140,7 +137,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void deleteInfo(todo td) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_TODO, KEY_ID + " = ?",
-                new String[]{String.valueOf(td.get_id())});
+                new String[] { String.valueOf(td.get_id()) });
         db.close();
     }
 
@@ -155,18 +152,4 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return count
         return cursor.getCount();
     }
-
-    public Cursor getAllRows() {
-        String where = null;
-        SQLiteDatabase db = this.getReadableDatabase();
-        //Cursor cursor = db.query(TABLE_TODO, new String[]{KEY_ID,
-        //                KEY_TITLE, KEY_DESCRIPTION, KEY_DATE, KEY_STATUS}, KEY_ID + "=?",
-         //       new String[]{String.valueOf(id)}, null, null, null, null);
-        Cursor c = db.query(true, DATABASE_NAME, ALL_KEYS, where, null, null, null, null, null);
-        if (c != null) {
-            c.moveToFirst();
-        }
-        return c;
-    }
-
 }

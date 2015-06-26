@@ -1,8 +1,6 @@
 package com.example.mala.project;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,21 +15,12 @@ public class MyAdapter extends ArrayAdapter<Item> {
 
     private final Context context;
     private final ArrayList<Item> itemsArrayList;
-    private final List<todo> info;
 
     public MyAdapter(Context context, ArrayList<Item> itemsArrayList) {
 
         super(context, R.layout.row, itemsArrayList);
         this.context = context;
         this.itemsArrayList = itemsArrayList;
-    }
-
-    public MyAdapter(Context context, List<todo> info ) {
-
-        super(context, R.layout.row, info);
-        this.context = context;
-        //this.itemsArrayList = itemsArrayList;
-        this.info = info;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {

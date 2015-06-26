@@ -31,10 +31,7 @@
     </TextView>
 
     <ImageView
-        android:id="@+id/icon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentRight="true"
-        android:src="@mipmap/ic_like_before" />
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
 </RelativeLayout>

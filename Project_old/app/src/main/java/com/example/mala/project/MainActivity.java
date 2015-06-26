@@ -3,10 +3,12 @@ package com.example.mala.project;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
-import android.database.Cursor;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -14,7 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,12 +33,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     EditText title, description;
     DatePicker dp;
     Dialog dialog;
-    MyAdapter adapter;
-
-    Runnable run;
-    String tit, desc, date;
-    final DatabaseHandler db = new DatabaseHandler(this);
-    List<todo> info = null;
+    DatabaseHandler db = new DatabaseHandler(this);
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -46,27 +43,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         actionBar.show();
 
         // 1. pass context and data to the custom adapter
-        //adapter = new MyAdapter(this, generateData());
+        MyAdapter adapter = new MyAdapter(this, generateData());
         // 2. Get ListView from activity_main.xml
         ListView listView = (ListView) findViewById(R.id.listview);
-        info = db.getAllInfo();
-
         // 3. setListAdapter
-        //listView.setAdapter(adapter);
-        adapter = new MyAdapter(this, R.layout.row, info);
-        if (listView != null) {
-            listView.setAdapter(adapter);
-        }
-        //populateList();
-        /*run = new Runnable() {
-            public void run() {
-
-                //items.addAll(db.updateInfo(new todo(tit,desc,date)));
-                adapter.notifyDataSetChanged();
-                listView.invalidateViews();
-                listView.refreshDrawableState();
-            }
-        };*/
+        listView.setAdapter(adapter);
     }
 
     @Override
@@ -84,8 +65,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         MenuItem mnu2 = menu.add(0,1,1,"Completed Activity");
         {
-            mnu2.setIcon(R.mipmap.ic_like_before);
-            mnu2.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+            mnu1.setIcon(R.mipmap.ic_like_before);
+            mnu1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         }
     }
 
@@ -111,18 +92,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private ArrayList<Item> generateData(){
         ArrayList<Item> items = new ArrayList<Item>();
-        //todo td = new todo();
-        //db.getAllInfo();
-
-
-        items.add(new Item("Item 1", "First Item on the list", "time"));
+        items.add(new Item("Item 1","First Item on the list", "time"));
         items.add(new Item("Item 2", "Second Item on the list", "time"));
         items.add(new Item("Item 3", "Third Item on the list", "time"));
-        //db.getAllInfo();
-        //td.set_title(tit);
-        //td.set_description(desc);
-        //td.set_date(date);
-        //items.add(td);
         return items;
     }
 
@@ -145,40 +117,27 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dialog.show();
     }
 
-    private void populateList() {
-        Cursor cursor = db.getAllRows();
-        String[] Array1 = new String[] {DatabaseHandler.KEY_TITLE, DatabaseHandler.KEY_DESCRIPTION, DatabaseHandler.KEY_DATE};
-        int [] Array2 = new int[] {R.id.title, R.id.desc, R.id.time};
-        SimpleCursorAdapter scAdapter;
-        scAdapter = new SimpleCursorAdapter(getBaseContext(), R.layout.row, cursor, Array1, Array2, 0);
-        ListView listview = (ListView) findViewById(R.id.listview);
-        listview.setAdapter(scAdapter);
-    }
-
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.bt_save :
-                tit = title.getText().toString();
-                desc = description.getText().toString();
+                String tit = title.getText().toString();
+                String desc = description.getText().toString();
                 String month = String.valueOf(dp.getMonth() + 1);
                 String day = String.valueOf(dp.getDayOfMonth());
                 String year = String.valueOf(dp.getYear());
-                date = day + "/"+ month +"/"+ year;
+                String date = day + "/"+ month +"/"+ year;
 
                 Log.d("date", date);
 
                 //save entries to database
 
                 Log.d("Insert: ", "Inserting ..");
-
-                db.addInfo(new todo(tit, desc, date));
-                //populateList();
-                //runOnUiThread(run);
+                db.addInfo(new todo(tit,desc,date));
 
 
                 // Reading all data
-                Log.d("Reading: ", "Reading all contacts..");
+                /*Log.d("Reading: ", "Reading all contacts..");
                 List<todo> td = db.getAllInfo();
 
                 //List<String> table = new ArrayList<String>();
@@ -189,8 +148,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     // Writing Contacts to log
                     Log.d("Log ! : ", log);
                     //table.add(log);
-
-                }
+                }*/
 
                 dialog.dismiss();
                 break;
@@ -203,7 +161,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
 
     }
-
 
 
 }

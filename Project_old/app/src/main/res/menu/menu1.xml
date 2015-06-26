@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/fav"
+        android:title="Add Fav"
+        android:icon="@android:drawable/btn_star"
+        />
+
+    <item android:id="@+id/search"
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        >
+        <menu>
+            <item android:id="@+id/word_plus"
+                android:title="word + plus"
+                android:icon="@android:drawable/btn_plus"
+                />
+            <item android:id="@+id/word_minus"
+                android:title="word + minus"
+                android:orderInCategory="1"
+                android:icon="@android:drawable/btn_minus"
+                />
+            <item android:id="@+id/word_speakNow"
+                android:title="word + speakNow"
+                android:icon="@android:drawable/ic_btn_speak_now"
+                />
+        </menu>
+    </item>
+
+
+
+    <item android:id="@+id/save"
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        />
+
+    <item android:id="@+id/delete"
+        android:title="Delete"
+        android:icon="@android:drawable/ic_menu_delete"
+        />
+    <item android:id="@+id/bookmark"
+        android:title="BookMark"
+        android:icon="@android:drawable/btn_star"
+
+        />
+
+
+
+
+
+</menu>
