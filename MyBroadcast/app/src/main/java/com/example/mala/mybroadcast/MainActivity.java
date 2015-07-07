@@ -1,10 +1,12 @@
 package com.example.mala.mybroadcast;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
@@ -32,6 +34,12 @@ public class MainActivity extends Activity {
     }
 
     public void onToggleClicked(View v) {
+        NotificationCompat.Builder mybuilder = new NotificationCompat.Builder(
+                this).setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("Wifi Status")
+                .setContentText("Wifi");
+
+
         StringBuffer result = new StringBuffer();
         result.append("toggle : ").append(toggle.getText());
         Toast.makeText(this, result.toString(), Toast.LENGTH_SHORT).show();
