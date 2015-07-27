@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mainmenu"
+        android:icon="@mipmap/ic_menu_filter"
+        android:orderInCategory="100"
+        android:title="Most Popular"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu1"
+                android:title="Most Popular"/>
+            <item
+                android:id="@+id/menu2"
+                android:title="Upcoming Movies"/>
+            <item
+                android:id="@+id/menu3"
+                android:title="Latest Movies"/>
+            <item
+                android:id="@+id/menu4"
+                android:title="Now Playing"/>
+            <item
+                android:id="@+id/menu5"
+                android:title="Top Rated"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/secondmenu"
+        android:icon="@drawable/abc_popup_background_mtrl_mult"
+        android:orderInCategory="100"
+
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/watch"
+                android:title="My Watchlist"/>
+            <item
+                android:id="@+id/fav"
+                android:title="My Favourites"/>
+            <item
+                android:id="@+id/refresh"
+                android:title="Refresh"/>
+
+        </menu>
+    </item>
+
+
+
+
+
+</menu>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:padding="10dp"
+android:paddingLeft="10dp"
+android:paddingRight="10dp" >
+
+<!-- Movie Title -->
+
+<TextView
+    android:id="@+id/title"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="2dip"
+    android:paddingTop="6dip"
+    android:textColor="#43bd00"
+    android:text="Movie Title: "
+    android:textSize="16sp"
+    android:textStyle="bold" />
+
+<!-- Release Date -->
+<TextView
+    android:id="@+id/date"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="2dip"
+    android:text="Release Date: "
+    android:textColor="#acacac" />
+
+<!-- Popularity -->
+<TextView
+    android:id="@+id/pop"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:text="Popularity: "
+    android:textColor="#5d5d5d"
+    android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/votes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Votes Count: "
+        android:textColor="#FCCA5E"
+        />
+
+    <ImageView
+        android:id="@+id/movieimage"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+</LinearLayout>
