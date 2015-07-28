@@ -123,15 +123,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     // Getting JSON Array node
                     contactsarr = jsonObj.getJSONArray(TAG_CONTACTS);
+                    //Log.d("array fetched:" , contactsarr);
 
                     // looping through All Contacts
-                     for (int i = 1; i < contactsarr.length(); i++) {
+                     for (int i = 0; i < contactsarr.length(); i++) {
                         JSONObject c = contactsarr.getJSONObject(i);
 
-                        String title = jsonObj.getString(TAG_TITLE);
-                        String date = jsonObj.getString(TAG_DATE);
-                        String popularity = jsonObj.getString(TAG_POPULARITY);
-                        String votes = jsonObj.getString(TAG_VOTES);
+                        String title = c.getString(TAG_TITLE);
+                        String date = c.getString(TAG_DATE);
+                        String popularity = c.getString(TAG_POPULARITY);
+                        String votes = c.getString(TAG_VOTES);
+                        Log.d("title", title);
+                        Log.d("date", date);
+                        Log.d("popularity", popularity);
+                        Log.d("votes", votes);
 
                         // pass all data to the contacts
                         contacts ct = new contacts();
